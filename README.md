@@ -41,7 +41,7 @@ wrangler.toml          Cloudflare Pages settings
 
 ## Editing content
 
-- **Phone, email, address or menu:** edit `src/content/site.ts`.
+- **Phone, email, office addresses or menu:** edit `src/content/site.ts` (`phones`, `email`, `offices`, `nav`).
 - **Add a solution or service:** add an entry to `offerings` in `src/content/offerings.ts`
   with `kind: "solutions"` or `kind: "services"`. Its page, card and related links are created
   automatically. To show it in the header dropdown as well, add it to `nav` in `site.ts`.
@@ -107,7 +107,7 @@ app (Outlook, Gmail, Apple Mail…) with a `mailto:` link that already contains 
 details. The visitor then presses **Send**. If no email app opens, the page shows the address with
 "Open email app" and "Copy email address" buttons.
 
-- **Recipient:** `site.emails.info` in `src/content/site.ts` (currently info@datayog.com).
+- **Recipient:** `site.email` in `src/content/site.ts` (currently info@datayog.com).
 - **Subject and body format:** `mailtoFor()` in `src/lib/forms.ts`.
 - No server code, API keys or `.env` file are needed.
 

@@ -27,9 +27,9 @@ export function LegalPage({ title, intro, sections }: { title: string; intro: st
           <section>
             <h2 className="text-xl sm:text-2xl">Contact us</h2>
             <p className="mt-3">
-              If you have any questions, please contact {site.legalName} at{" "}
-              <a href={`mailto:${site.emails.info}`} className="font-medium text-brand-600 hover:underline">
-                {site.emails.info}
+              If you have any questions, please contact {site.name} at{" "}
+              <a href={`mailto:${site.email}`} className="font-medium text-brand-600 hover:underline">
+                {site.email}
               </a>
               .
             </p>

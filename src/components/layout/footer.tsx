@@ -39,12 +39,16 @@ export function Footer() {
             Empowering networks and elevating performance with digital precision — OSS analytics, RAN, fiber and data
             center services for operators worldwide.
           </p>
-          <address className="mt-6 space-y-1 text-sm not-italic">
-            <p className="font-medium text-slate-300">{site.legalName}</p>
-            {site.address.map((line) => (
-              <p key={line}>{line}</p>
+          <div className="mt-6 grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-1">
+            {site.offices.map((office) => (
+              <address key={office.country} className="space-y-1 not-italic">
+                <p className="font-medium text-slate-300">{office.company}</p>
+                {office.address.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </address>
             ))}
-          </address>
+          </div>
         </div>
 
         <LinkList title="Solutions" links={solutions} />
@@ -65,8 +69,8 @@ export function Footer() {
           </div>
           <div>
             <p className="text-slate-400">Questions? Reach us at</p>
-            <a href={`mailto:${site.emails.info}`} className="block py-1 text-slate-200 hover:text-brand-500">
-              {site.emails.info}
+            <a href={`mailto:${site.email}`} className="block py-1 text-slate-200 hover:text-brand-500">
+              {site.email}
             </a>
           </div>
           <div>

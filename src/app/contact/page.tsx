@@ -36,18 +36,20 @@ export default function ContactPage() {
               <p className="text-sm">{site.hours}</p>
             </InfoBlock>
             <InfoBlock title="Email us">
-              <a href={`mailto:${site.emails.info}`} className="block hover:text-brand-600">
-                {site.emails.info}
+              <a href={`mailto:${site.email}`} className="block hover:text-brand-600">
+                {site.email}
               </a>
             </InfoBlock>
-            <InfoBlock title="United States">
-              <address className="not-italic">
-                <p className="font-medium text-navy-900">{site.legalName}</p>
-                {site.address.slice(0, 2).map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
-              </address>
-            </InfoBlock>
+            {site.offices.map((office) => (
+              <InfoBlock key={office.country} title={office.country}>
+                <address className="not-italic">
+                  <p className="font-medium text-navy-900">{office.company}</p>
+                  {office.address.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </address>
+              </InfoBlock>
+            ))}
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
             <h2 className="text-2xl sm:text-3xl">Get in touch</h2>

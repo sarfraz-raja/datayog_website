@@ -44,7 +44,7 @@ export function fieldErrors(error: z.ZodError): FieldErrors {
 }
 
 /** Address the website's forms are sent to. */
-export const LEADS_EMAIL = site.emails.info;
+export const LEADS_EMAIL = site.email;
 
 // "2026-10-20" → "Tuesday, 20 October 2026" (parsed as a calendar date, no time zone shift).
 function formatDate(value?: string) {

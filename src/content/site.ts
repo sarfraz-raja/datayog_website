@@ -1,18 +1,22 @@
 export const site = {
   name: "DATAYOG",
-  legalName: "IRAAVAN DATAYOG SOLUTIONS INC",
   tagline: "Your Network Solutionist",
-  phones: [
-    { label: "+1 516-309-0731", href: "tel:+15163090731" },
-    // { label: "+1 409-934-7200", href: "tel:+14099347200" },
-  ],
-  emails: {
-    info: "info@datayog.com",
-    // sales: "sarfraz@datayog.com",
-    // hr: "hr@datayog.com",
-  },
+  phones: [{ label: "+1 516-309-0731", href: "tel:+15163090731" }],
+  // The only email address shown anywhere on the website (and where forms are sent).
+  email: "info@datayog.com",
   hours: "Mon – Fri, 9:00 AM – 6:00 PM",
-  address: ["6600 Chase Oaks Blvd STE", "Plano, TX 75023", "United States"],
+  offices: [
+    {
+      country: "United States",
+      company: "DATAYOG SOLUTIONS INC",
+      address: ["6600 Chase Oaks Blvd STE", "Plano, TX 75023", "United States"],
+    },
+    {
+      country: "India",
+      company: "DATAYOG ANALYTICS PRIVATE LTD",
+      address: ["10, Vidhata Nagar, Bathindi Lane Zero", "Jammu, Jammu and Kashmir", "India 181152"],
+    },
+  ],
   stats: [
     { value: "8+", label: "Years of market presence" },
     { value: "50+", label: "Successful projects delivered" },
