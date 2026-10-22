@@ -1,0 +1,392 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-950: #060f1e;
+  --color-navy-900: #0b1b33;
+  --color-navy-800: #132a4d;
+  --color-navy-700: #1d3a66;
+
+  --color-brand-50: #fff4ec;
+  --color-brand-100: #ffe4d1;
+  --color-brand-500: #fe852d;
+  /* 600/700 are darker so orange text passes WCAG AA contrast on light backgrounds. */
+  --color-brand-600: #b54f07;
+  --color-brand-700: #9a4405;
+
+  /* One easing curve for the whole site keeps motion feeling consistent. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
+  --animate-fade-in: fade-in 0.5s var(--ease-out-soft) both;
+  --animate-slide-down: slide-down 0.25s var(--ease-out-soft) both;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-700 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-navy-900 font-semibold tracking-tight text-balance;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-navy-900;
+  }
+}
+
+/* Two neighbouring bands with the same background read as one: drop the doubled gap. */
+main > [data-tone="white"] + [data-tone="white"],
+main > [data-tone="muted"] + [data-tone="muted"] {
+  padding-top: 0;
+}
+
+/* ---------- Motion ---------- */
+
+/* Scroll reveal: pure CSS, no JavaScript. Browsers without scroll-driven
+   animations simply show the content. Elements already on screen at load are
+   past their entry range, so nothing above the fold is hidden. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Header gains a soft shadow once the page scrolls. */
+  .header-shadow {
+    animation: header-shadow linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120px;
+  }
+
+  @keyframes header-shadow {
+    to {
+      box-shadow: 0 6px 24px -12px rgb(11 27 51 / 0.25);
+      border-color: transparent;
+    }
+  }
+}
+
+/* Endless marquee (components/motion/marquee.tsx). */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee[data-reverse] .marquee-track {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hero headline: words rise in one after another (delay set inline per word). */
+.word-rise {
+  display: inline-block;
+  animation: fade-up 0.8s var(--ease-out-soft) both;
+}
+
+/* Gradient on highlighted words (static: animating it would repaint text every frame). */
+.text-shine {
+  background: linear-gradient(100deg, #fe852d 0%, #ffb066 55%, #fe852d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Home hero dashboard motion layer (components/art/hero-dashboard.tsx).
+   Only transform and opacity are animated, so it all runs on the GPU. */
+.hero-dash {
+  container-type: inline-size;
+}
+
+.hero-blink {
+  animation: hero-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes hero-blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.hero-packet {
+  opacity: 0;
+  animation: hero-packet 2.4s linear infinite;
+}
+
+@keyframes hero-packet {
+  0% {
+    opacity: 0;
+    transform: none;
+  }
+  12%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy));
+  }
+}
+
+.hero-ping {
+  opacity: 0;
+  animation: hero-ping 2.4s ease-out infinite;
+}
+
+@keyframes hero-ping {
+  from {
+    opacity: 0.9;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.hero-toast {
+  animation: hero-toast 7s var(--ease-out-soft) infinite;
+}
+
+@keyframes hero-toast {
+  0%,
+  15% {
+    opacity: 0;
+    transform: translateY(1.5cqw) scale(0.96);
+  }
+  22%,
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(1.5cqw) scale(0.96);
+  }
+}
+
+/* Brand illustrations (components/art). Backdrop: soft glow + dot grid. */
+.art {
+  background-image:
+    radial-gradient(ellipse at 70% 30%, rgb(254 133 45 / 0.16), transparent 55%),
+    radial-gradient(ellipse at 20% 90%, rgb(90 169 255 / 0.14), transparent 55%),
+    radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    18px 18px;
+  /* Skip painting (and animating) illustrations that are off-screen. */
+  content-visibility: auto;
+}
+
+/* Popup: fade + gentle scale on open and close. */
+dialog {
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  transition:
+    opacity 0.25s var(--ease-out-soft),
+    transform 0.3s var(--ease-out-soft),
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+
+dialog[open] {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+dialog::backdrop {
+  background: rgb(6 15 30 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+
+dialog[open]::backdrop {
+  background: rgb(6 15 30 / 0.7);
+  backdrop-filter: blur(4px);
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    background: rgb(6 15 30 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+/* Page-to-page transitions (React <ViewTransition> in app/template.tsx).
+   The header stays anchored; only the page content fades and lifts. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-old(.page) {
+  animation: 150ms ease-out both page-out;
+}
+
+::view-transition-new(.page) {
+  animation: 350ms var(--ease-out-soft) 100ms both page-in;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .word-rise,
+  .hero-blink,
+  .hero-toast {
+    animation: none !important;
+  }
+
+  .hero-packet,
+  .hero-ping {
+    display: none;
+  }
+
+  /* No auto-scrolling: let people scroll the strip themselves. */
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .marquee-group[aria-hidden] {
+    display: none;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+}

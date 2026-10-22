@@ -1,0 +1,43 @@
+# Cloudflare Pages redirects: old WordPress URLs → new pages (301 = permanent).
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+# Each old page is listed with and without the trailing slash WordPress used.
+# More specific rules must come before general ones.
+
+/agency                                      /about                           301
+/agency/                                     /about                           301
+/meet-our-team                               /careers                         301
+/meet-our-team/                              /careers                         301
+
+/our_services/dataplus_analytics_program     /solutions/dataplus-platform     301
+/our_services/dataplus_analytics_program/    /solutions/dataplus-platform     301
+/our_services/engineering_solutions          /solutions/engineering-solutions 301
+/our_services/engineering_solutions/         /solutions/engineering-solutions 301
+/our_services/e2e_ran_services               /services/e2e-ran-services       301
+/our_services/e2e_ran_services/              /services/e2e-ran-services       301
+/our_services                                /solutions                       301
+/our_services/                               /solutions                       301
+
+/osp-engineering-services                    /services/osp-engineering        301
+/osp-engineering-services/                   /services/osp-engineering        301
+/data-center-services-services               /services/data-center            301
+/data-center-services-services/              /services/data-center            301
+/terms-and-conditions                        /terms                           301
+/terms-and-conditions/                       /terms                           301
+
+/cases                                       /solutions                       301
+/cases/                                      /solutions                       301
+/showcase/*                                  /solutions                       301
+/case_category/*                             /solutions                       301
+/team/*                                      /careers                         301
+/category/*                                  /blog                            301
+/tag/*                                       /blog                            301
+
+# Old blog posts: /2023/10/07/hello-world/ → /blog
+# Limited to the years the old site used. A generic /:year/:month/:day/:slug rule
+# would also catch /_next/static/... files and break the site.
+/2018/*                                      /blog                            301
+/2019/*                                      /blog                            301
+/2020/*                                      /blog                            301
+/2021/*                                      /blog                            301
+/2022/*                                      /blog                            301
+/2023/*                                      /blog                            301

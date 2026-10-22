@@ -1,0 +1,60 @@
+# See https://git-scm.com/docs/gitignore
+
+# ─── Dependencies ────────────────────────────────────────────────
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ─── Next.js build output ────────────────────────────────────────
+/.next/
+/out/
+/build
+/.next-docs/
+
+# ─── Generated at build time ─────────────────────────────────────
+# Illustrations are rebuilt by `npm run art` before every dev/build.
+/public/art/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# ─── Deployment (Cloudflare / OpenNext, Vercel) ──────────────────
+/.open-next/
+/.wrangler/
+.vercel
+
+# ─── Secrets — never commit ──────────────────────────────────────
+.env*
+.dev.vars*
+*.pem
+*.key
+
+# ─── Testing ─────────────────────────────────────────────────────
+/coverage
+
+# ─── Logs ────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Operating system files ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Next.js re-creates AGENTS.md (AI agent notes) on `next dev`; keep it out of git.
+AGENTS.md
+
+# ─── Editors ─────────────────────────────────────────────────────
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
