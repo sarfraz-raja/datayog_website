@@ -51,13 +51,13 @@ export default function CareersPage() {
           <div className="p-8 sm:p-12">
             <h2 className="text-3xl text-white sm:text-4xl">{hiring.heading}</h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-300">{hiring.body}</p>
-            <a href={`mailto:${site.emails.hr}?subject=Job%20application`} className={buttonClass("primary", "mt-8")}>
+            <a href={`mailto:${site.emails.info}?subject=Job%20application`} className={buttonClass("primary", "mt-8")}>
               Join our team
             </a>
             <p className="mt-4 text-sm text-slate-400">
               Send your resume to{" "}
-              <a href={`mailto:${site.emails.hr}`} className="font-medium text-brand-500 hover:text-brand-100">
-                {site.emails.hr}
+              <a href={`mailto:${site.emails.info}?subject=Job%20application`} className="font-medium text-brand-500 hover:text-brand-100">
+                {site.emails.info}
               </a>
             </p>
           </div>

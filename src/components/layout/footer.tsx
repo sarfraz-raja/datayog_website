@@ -68,9 +68,6 @@ export function Footer() {
             <a href={`mailto:${site.emails.info}`} className="block py-1 text-slate-200 hover:text-brand-500">
               {site.emails.info}
             </a>
-            <a href={`mailto:${site.emails.hr}`} className="block py-1 text-slate-200 hover:text-brand-500">
-              {site.emails.hr}
-            </a>
           </div>
           <div>
             <p className="text-slate-400">Working hours</p>

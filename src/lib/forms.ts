@@ -21,8 +21,6 @@ export const contactSchema = z.object({
   type: z.literal("contact"),
   name,
   email: z.email("Please enter a valid email address").max(200),
-  budget: z.string().trim().max(100).optional(),
-  timeframe: z.string().trim().max(100).optional(),
   // Kept short enough for every email app to accept the mailto: link.
   message: z
     .string()
@@ -100,7 +98,6 @@ function compose(lead: Lead) {
     };
   }
 
-  const projectDetails = lines(lead.budget && `Budget: ${lead.budget}`, lead.timeframe && `Timeframe: ${lead.timeframe}`);
   return {
     subject: `Project Enquiry – ${lead.name} | DATAYOG Website`,
     body: lines(
@@ -108,10 +105,7 @@ function compose(lead: Lead) {
       "",
       "I would like to discuss a project with you. Please find the details below.",
       "",
-      "PROJECT DETAILS",
-      projectDetails || undefined,
-      projectDetails ? "" : undefined,
-      "Message:",
+      "MESSAGE",
       lead.message,
       "",
       "CONTACT DETAILS",

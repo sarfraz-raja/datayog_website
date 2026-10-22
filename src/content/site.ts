@@ -4,12 +4,12 @@ export const site = {
   tagline: "Your Network Solutionist",
   phones: [
     { label: "+1 516-309-0731", href: "tel:+15163090731" },
-    { label: "+1 409-934-7200", href: "tel:+14099347200" },
+    // { label: "+1 409-934-7200", href: "tel:+14099347200" },
   ],
   emails: {
     info: "info@datayog.com",
-    sales: "sarfraz@datayog.com",
-    hr: "hr@datayog.com",
+    // sales: "sarfraz@datayog.com",
+    // hr: "hr@datayog.com",
   },
   hours: "Mon – Fri, 9:00 AM – 6:00 PM",
   address: ["6600 Chase Oaks Blvd STE", "Plano, TX 75023", "United States"],

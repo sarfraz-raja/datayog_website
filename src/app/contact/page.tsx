@@ -36,9 +36,6 @@ export default function ContactPage() {
               <p className="text-sm">{site.hours}</p>
             </InfoBlock>
             <InfoBlock title="Email us">
-              <a href={`mailto:${site.emails.sales}`} className="block hover:text-brand-600">
-                {site.emails.sales}
-              </a>
               <a href={`mailto:${site.emails.info}`} className="block hover:text-brand-600">
                 {site.emails.info}
               </a>

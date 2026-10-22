@@ -23,8 +23,6 @@ export function ContactForm() {
     <form noValidate onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
       <Field label="Name" name="name" required autoComplete="name" error={errors.name} />
       <Field label="Email" name="email" type="email" required autoComplete="email" error={errors.email} />
-      <Field label="Your budget" name="budget" placeholder="e.g. $10k – $25k" error={errors.budget} />
-      <Field label="Timeframe" name="timeframe" placeholder="e.g. Q1 2027" error={errors.timeframe} />
       <Field
         label="Tell us a bit about your project"
         name="message"

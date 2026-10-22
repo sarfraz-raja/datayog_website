@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Temporary files created by `wrangler pages dev` (npm run preview)
+    ".wrangler/**",
   ]),
 ]);
 
