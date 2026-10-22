@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-quantico), var(--font-inter), ui-sans-serif, sans-serif;
 
   --color-navy-950: #060f1e;
   --color-navy-900: #0b1b33;
