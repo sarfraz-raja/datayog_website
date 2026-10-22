@@ -53,7 +53,7 @@ const logoHeights: Record<string, string> = {
   TNM: "h-14 sm:h-16",
   mobilecomm: "h-14 sm:h-16",
   Airtel: "h-10 sm:h-11",
-  Vedanta: "h-8 sm:h-9",
+  "Vedanta Technology": "h-9 sm:h-10",
   Anybox: "h-5 sm:h-6",
 };
 const logoHeight = (name: string) => logoHeights[name] ?? "h-9 sm:h-10";

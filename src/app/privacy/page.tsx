@@ -1,47 +1,58 @@
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/legal-page";
+import { PageHero } from "@/components/page-hero";
+import { Container } from "@/components/ui";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = { title: "Privacy Policy" };
 
+// Registered company names. Legal documents use the full names; the rest of the site uses "DATAYOG".
+const entities = ["Iraavan DataYog Solution Inc., USA", "Iraavanan DataYog Analytics Private Limited, India"];
+
 export default function PrivacyPage() {
   return (
-    <LegalPage
-      title="Privacy Policy"
-      intro="How DATAYOG collects, uses and protects the information you share with us through this website."
-      sections={[
-        {
-          heading: "Information we collect",
-          text: "We only collect the information you choose to send us through our contact and consultation forms — such as your name, email address, phone number, preferred meeting time and details about your project.",
-        },
-        {
-          heading: "How we use your information",
-          text: [
-            "To respond to your enquiry or consultation request",
-            "To prepare proposals and discuss our solutions and services",
-            "To improve our website and the way we communicate with clients",
-          ],
-        },
-        {
-          heading: "Sharing your information",
-          text: "We do not sell, trade or rent your personal information. We may use trusted service providers (for example, email delivery) solely to operate this website and respond to you.",
-        },
-        {
-          heading: "Data security",
-          text: "We apply appropriate technical and organizational measures to protect your information against unauthorized access, alteration, disclosure or destruction.",
-        },
-        {
-          heading: "Your rights",
-          text: "You may ask us at any time to access, correct or delete the personal information you have shared with us.",
-        },
-        {
-          heading: "Cookies",
-          text: "This website does not use advertising or tracking cookies. Your browser may store essential technical data needed for the site to function.",
-        },
-        {
-          heading: "Changes to this policy",
-          text: "We may update this policy from time to time. Any changes will be posted on this page.",
-        },
-      ]}
-    />
+    <>
+      <PageHero title="Privacy Policy" intro="Last Updated: October 22, 2026" crumbs={[{ label: "Privacy Policy" }]} />
+      <div className="py-12 sm:py-16">
+        <Container className="max-w-3xl space-y-6 text-lg leading-relaxed">
+          <p>
+            Iraavan DataYog Solution Inc. and Iraavanan DataYog Analytics Private Limited (collectively referred to as
+            “DataYog,” “we,” “our,” or “us”) respect your privacy.
+          </p>
+          <p>
+            Our website provides information about our company, products, and services. We do not use cookies or
+            tracking technologies to monitor visitors.
+          </p>
+          <p>
+            Our contact form opens the visitor’s default email application, allowing inquiries to be sent directly to
+            us. Any personal information included in these emails, such as your name, email address, and message, will
+            be used to respond to your inquiry and communicate with you.
+          </p>
+          <p>
+            We do not sell personal information to third parties. Personal information shared with us is handled in
+            accordance with applicable privacy laws.
+          </p>
+          <p>
+            Our website may contain links to third-party websites. We are not responsible for their privacy practices
+            or content, and we encourage visitors to review their respective privacy policies.
+          </p>
+          <p>
+            For privacy-related questions or requests, please contact us at{" "}
+            <a href={`mailto:${site.email}`} className="font-medium text-brand-600 hover:underline">
+              {site.email}
+            </a>
+            .
+          </p>
+
+          <div className="border-t border-slate-200 pt-6 text-base">
+            <p className="font-semibold text-navy-900">DataYog</p>
+            {entities.map((entity) => (
+              <p key={entity} className="mt-1 text-slate-600">
+                {entity}
+              </p>
+            ))}
+          </div>
+        </Container>
+      </div>
+    </>
   );
 }

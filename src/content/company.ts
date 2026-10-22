@@ -121,7 +121,7 @@ export const industries = [
 // Official logos, shown in their brand colours.
 export const clients = [
   { name: "Airtel", logo: "/images/clients/airtel.svg", width: 91, height: 42 },
-  { name: "Vedanta", logo: "/images/clients/vedanta.svg", width: 200, height: 43 },
+  { name: "Vedanta Technology", logo: "/images/clients/vedanta-technology.png", width: 214, height: 47 },
   { name: "TNM", logo: "/images/clients/tnm.svg", width: 447, height: 576 },
   { name: "mobilecomm", logo: "/images/clients/mobilecomm.webp", width: 480, height: 240 },
   { name: "Sky Productivity Pvt. Ltd.", logo: "/images/clients/sky-productivity.webp", width: 200, height: 57 },
