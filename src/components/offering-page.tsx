@@ -22,7 +22,7 @@ export function OfferingPage({ kind, slug }: { kind: Offering["kind"]; slug: str
   const offering = getOffering(kind, slug);
   if (!offering) notFound();
 
-  const withImages = offering.features.filter((f) => f.art);
+  const withImages = offering.features.filter((f) => f.art || f.image);
   const related = offerings.filter((o) => o.slug !== offering.slug).slice(0, 3);
 
   return (
@@ -47,7 +47,7 @@ export function OfferingPage({ kind, slug }: { kind: Offering["kind"]; slug: str
             </div>
           ) : (
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-navy-900 shadow-xl">
-              <Art name={offering.art} label={`${offering.title} illustration`} priority />
+              <Art name={offering.art} src={offering.image} label={`${offering.title} illustration`} priority />
             </div>
           )}
         </div>
@@ -90,7 +90,7 @@ export function OfferingPage({ kind, slug }: { kind: Offering["kind"]; slug: str
               <div key={f.title} className="reveal grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
                 <div className={i % 2 ? "lg:order-2" : undefined}>
                   <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-navy-900">
-                    <Art name={f.art!} label={f.title} />
+                    <Art name={f.art?? "dashboard"} src={f.image} label={f.title} />
                   </div>
                 </div>
                 <div>

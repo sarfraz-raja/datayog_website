@@ -62,7 +62,7 @@ export default function CareersPage() {
             </p>
           </div>
           <div className="relative aspect-square lg:h-full">
-            <Art name="team" label="A connected team of specialists" />
+            <Art name="team" src="images/careers/team.png" label="A connected team of specialists" />
           </div>
         </div>
       </Section>

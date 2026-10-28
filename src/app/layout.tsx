@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${quantico.variable}`}>
-      <body className="flex min-h-dvh flex-col font-sans">
+      <body className="flex min-h-dvh flex-col font-sans" suppressHydrationWarning>
         <ConsultProvider>
           <Header />
           <main id="main" className="flex-1">

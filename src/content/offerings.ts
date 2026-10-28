@@ -1,6 +1,6 @@
 import type { ArtName } from "@/components/art/art";
 
-export type Feature = { title: string; description: string; art?: ArtName };
+export type Feature = { title: string; description: string; art?: ArtName, image?: string };
 
 export type Offering = {
   slug: string;
@@ -10,6 +10,7 @@ export type Offering = {
   summary: string;
   intro: string[];
   art: ArtName;
+  image?: string;
   /** Show the animated DataPlus dashboard instead of the static illustration. */
   liveDashboard?: boolean;
   highlights?: Feature[];
@@ -31,6 +32,7 @@ export const offerings: Offering[] = [
       "Streamline network management with the DataPlus platform — a multi-vendor OSS solution for Core, RAN, and Transmission.",
     ],
     art: "dashboard",
+    image: "/images/offerings/dataplus-platform.png",
     liveDashboard: true,
     featuresHeading: "What it does",
     features: [
@@ -39,12 +41,14 @@ export const offerings: Offering[] = [
         description:
           "Cloud technology is used to store and manage network data, making it accessible from anywhere.",
         art: "cloud",
+        image: "/images/offerings/dataplus-features/cloud-management.png",
       },
       {
         title: "Unified Multi-Vendor Dashboard",
         description:
           "Simplifies network management and reduces complexity with a single dashboard displaying multiple vendors' network performance.",
         art: "dashboard",
+        image: "/images/offerings/dataplus-features/multi-vendor.png",
       },
       {
         title: "SLA Management",
@@ -56,6 +60,7 @@ export const offerings: Offering[] = [
         description:
           "Using Artificial Intelligence (AI) and Machine Learning (ML), this module performs advanced Root Cause Analysis (RCA) to proactively identify and resolve network issues.",
         art: "ai",
+        image: "/images/offerings/dataplus-features/ai-ml.png",
       },
       {
         title: "Advanced Coverage Validation",
@@ -67,6 +72,7 @@ export const offerings: Offering[] = [
         description:
           "Provides a geographical view of network performance, allowing operators to visualize and analyze network data in a spatial context.",
         art: "globe",
+        image: "/images/offerings/dataplus-features/geo-view.png",
       },
       {
         title: "Real-time FCAPS Monitoring",
@@ -91,6 +97,7 @@ export const offerings: Offering[] = [
       "Our engineering solution provides a platform for seamless management of RAN, Core, and Transport networks. It offers robust OSS automation, advanced analytics, performance and network assurance, quality dashboards, PowerBI analytics and scripting capabilities.",
     ],
     art: "layers",
+    image: "/images/offerings/engineering-solutions.png",
     featuresHeading: "What we do",
     features: [
       {
@@ -113,6 +120,7 @@ export const offerings: Offering[] = [
         description:
           "A dashboard that offers a consolidated view of network quality and acceptance metrics, enabling operators to assess and maintain the quality of their services.",
         art: "quality",
+        image: "/images/offerings/engineering-features/quality-acceptance.png"
       },
       {
         title: "Mobile Apps (iOS / Android)",
@@ -124,12 +132,14 @@ export const offerings: Offering[] = [
         description:
           "PowerBI integration enhances reporting and data visualization, enabling customized, interactive dashboards for network performance and business insights.",
         art: "analytics",
+        image: "/images/offerings/engineering-features/power-bi.png"
       },
       {
         title: "Scripting",
         description:
           "Enables operators to automate tasks, execute custom scripts for RAN site integration and implement specific network configurations as needed, offering flexibility and efficiency.",
         art: "code",
+        image: "/images/offerings/engineering-features/scripting.png"
       },
     ],
     cta: {
@@ -149,6 +159,7 @@ export const offerings: Offering[] = [
       "Our services cover various aspects of wireless technology, including network design, support parameter auditing, pre-launch optimization, and network assurance.",
     ],
     art: "ran",
+    image: "/images/offerings/e2e-ran-services.png",
     highlights: [
       {
         title: "Thoughtful",
@@ -215,6 +226,7 @@ export const offerings: Offering[] = [
       "DATAYOG Fiber Design and Engineering Services play a crucial role in the development and implementation of high-performance fiber optic FTTX networks. Our services span the full outside plant lifecycle, from research and permitting through field data collection, detailed design and quality assurance.",
     ],
     art: "fiber",
+    image: "/images/offerings/osp-engineering.png",
     featuresHeading: "Our services include",
     features: [
       {
@@ -222,24 +234,28 @@ export const offerings: Offering[] = [
         description:
           "Conducting thorough research before starting a project accelerates the workflow and helps avoid unnecessary roadblocks on the path to delivery. We prepare high-level designs and manage the permitting process.",
         art: "blueprint",
+        image: "/images/offerings/osp-features/hld-permitting.png"
       },
       {
         title: "Field Survey",
         description:
           "Field data collection is a crucial component of most OSP projects. We have the expertise to deliver accurate, detailed and timely field data that improves field team efficiency.",
         art: "survey",
+        image: "/images/offerings/osp-features/field-survey.png"
       },
       {
         title: "LLD Drafting",
         description:
           "Most Outside Plant (OSP) designs follow established guidelines, allowing field teams to gather the necessary field notes. These notes are then used to create accurate, construction-ready low-level designs.",
         art: "lld",
+        image: "/images/offerings/osp-features/lld-drafting.png"
       },
       {
         title: "Quality Assurance",
         description:
           "Quality assurance is integral to all our activities — from research and data collection to high-level and low-level design, field notes and permitting.",
         art: "quality",
+        image: "/images/offerings/osp-features/quality-assurance.png"
       },
     ],
     cta: {
@@ -259,6 +275,7 @@ export const offerings: Offering[] = [
       "DATAYOG Data Center's specialized workforce excels in navigating the fast-evolving technology landscape with deep expertise in hardware, software, and support services — helping you build, run and evolve reliable data center infrastructure.",
     ],
     art: "datacenter",
+    image: "/images/offerings/datacenter-services.png",
     featuresHeading: "Our services include",
     features: [
       {

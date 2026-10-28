@@ -11,11 +11,13 @@ export type { ArtName };
  */
 export function Art({
   name,
+  src,
   label,
   className,
   priority = false,
 }: {
   name: ArtName | "hero-dashboard";
+  src?: string;
   label?: string;
   className?: string;
   priority?: boolean;
@@ -23,13 +25,13 @@ export function Art({
   return (
     <div className={cx("art absolute inset-0 overflow-hidden bg-navy-950", className)}>
       <Image
-        src={`/art/${name}.svg`}
+        src={src ?? `/art/${name}.svg`}
         alt={label ?? ""}
         fill
-        unoptimized
+        unoptimized = {!src || src.endsWith(".svg")}
         preload={priority}
         loading={priority ? "eager" : "lazy"}
-        className="object-contain"
+        className={src ? "object-cover" : "object-contain"}
       />
     </div>
   );

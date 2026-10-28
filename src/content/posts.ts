@@ -7,6 +7,7 @@ export type Post = {
   category: string;
   date: string; // ISO date
   art: ArtName;
+  image?: string;
   body: { heading?: string; text: string }[];
 };
 
@@ -19,6 +20,7 @@ export const posts: Post[] = [
     category: "Network Analytics",
     date: "2026-09-15",
     art: "dashboard",
+    image: "/images/posts/why-multi-vendor.png",
     body: [
       {
         text: "Most operators don't run a single-vendor network. Years of upgrades, acquisitions and technology refreshes leave RAN, Core and Transport domains spread across several OEMs — each with its own element manager, KPI definitions and alarm formats.",
@@ -45,6 +47,7 @@ export const posts: Post[] = [
     category: "Fiber Engineering",
     date: "2026-08-20",
     art: "blueprint",
+    image: "/images/posts/fttx-design.png",
     body: [
       {
         text: "Fiber-to-the-X rollouts move fast, and the pressure to pass more homes sooner is constant. But design errors discovered during construction are among the most expensive problems in an OSP project.",
@@ -71,6 +74,7 @@ export const posts: Post[] = [
     category: "Data Center",
     date: "2026-07-28",
     art: "datacenter",
+    image: "/images/posts/data-center-relocation.png",
     body: [
       {
         text: "Whether driven by consolidation, cost or capacity, a data center move touches every critical system a business depends on. Success comes down to planning, sequencing and disciplined execution.",

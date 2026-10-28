@@ -26,7 +26,7 @@ export default function AboutPage() {
       <Section tone="dark">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div className="relative aspect-square overflow-hidden rounded-3xl">
-            <Art name="globe" label="Global network performance visualization" />
+            <Art name="globe" src="images/about/vision-mission.png" label="Global network performance visualization" />
           </div>
           <div className="space-y-10">
             <div>

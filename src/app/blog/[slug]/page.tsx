@@ -40,7 +40,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
       <article data-tone="white" className="bg-white py-12 sm:py-16">
         <Container className="max-w-3xl">
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-navy-900">
-            <Art name={post.art} />
+            <Art name={post.art} src={post.image} />
           </div>
           <p className="mt-10 text-xl leading-relaxed text-navy-900">{post.excerpt}</p>
           <div className="mt-8 space-y-6 text-lg leading-relaxed">

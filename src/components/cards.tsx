@@ -11,7 +11,7 @@ export function OfferingCard({ offering }: { offering: Offering }) {
       className="reveal group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 ease-out hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-navy-900/10"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-navy-900">
-        <Art name={offering.art} className="transition duration-700 ease-out group-hover:scale-105" />
+        <Art name={offering.art} src={offering.image} className="transition duration-700 ease-out group-hover:scale-105" />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">{offering.eyebrow}</p>
@@ -29,7 +29,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <article className="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 ease-out hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-navy-900/10">
       <div className="relative aspect-[16/10] overflow-hidden bg-navy-900">
-        <Art name={post.art} className="transition duration-700 ease-out group-hover:scale-105" />
+        <Art name={post.art} src={post.image} className="transition duration-700 ease-out group-hover:scale-105" />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <p className="text-xs text-slate-500">

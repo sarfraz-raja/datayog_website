@@ -34,7 +34,7 @@ const ROUTES: [string, string][] = [
 const ORANGE = "254,133,45";
 const AMBER = "255,190,120";
 const BLUE = "120,175,255";
-const TILT = (-18 * Math.PI) / 180; // axial tilt toward the viewer
+const TILT = (45 * Math.PI) / 180; // axial tilt toward the viewer — shows northern hemisphere
 const SPEED = 0.025; // fraction of π radians per second (~80 s per turn)
 const SAMPLES = 40; // points per arc
 
@@ -113,7 +113,7 @@ export function HeroGlobe({ className }: { className?: string }) {
     let raf = 0;
     let visible = true;
     let frame = 0;
-    let rotation = -0.75; // starts with Africa / Middle East / India facing the viewer
+    let rotation = -1.05; // 
     let last = 0;
     let backdrop: HTMLCanvasElement | null = null;
 
@@ -159,7 +159,7 @@ export function HeroGlobe({ className }: { className?: string }) {
       radius = Math.min(width, height, window.innerHeight - 140) * 0.4;
       cx = width / 2;
       cy = height / 2;
-      dots = landDots(lite ? 6000 : 16000);
+      dots = landDots(lite ? 10000 : 28000);
       backdrop = paintBackdrop(dpr);
     };
 
@@ -302,7 +302,7 @@ export function HeroGlobe({ className }: { className?: string }) {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className={`opacity-0 transition-opacity duration-1000 ${className ?? ""}`}
+      className={`opacity-0 transition-opacity  ${className ?? ""}`}
     />
   );
 }
